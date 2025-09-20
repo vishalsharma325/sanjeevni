@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeevni - Telemedicine Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h2>Sanjeevni</h2>
+            </div>
+            <nav class="nav">
+                <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="#appointments" class="nav-link" data-section="appointments">
+                    <i class="fas fa-calendar-alt"></i>
+                    Appointments
+                </a>
+                <a href="#doctors" class="nav-link" data-section="doctors">
+                    <i class="fas fa-user-md"></i>
+                    Doctors
+                </a>
+                <a href="#prescriptions" class="nav-link" data-section="prescriptions">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    Prescriptions
+                </a>
+                <a href="#reports" class="nav-link" data-section="reports">
+                    <i class="fas fa-file-medical"></i>
+                    Reports
+                </a>
+            </nav>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=User&background=4285f4&color=fff" alt="User" id="user-avatar">
+                    <div class="user-details">
+                        <span class="user-name" id="user-name">Loading...</span>
+                        <span class="user-role">Patient</span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="section-header">
+                <h1>Welcome to Your Health Dashboard</h1>
+                <p>Manage your health and wellness with Sanjeevni telemedicine platform</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <p>Upcoming Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>2</h3>
+                        <p>Active Prescriptions</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>8</h3>
+                        <p>Medical Reports</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>5</h3>
+                        <p>Favorite Doctors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-clock"></i> Recent Appointments</h3>
+                        <a href="#appointments" class="view-all">View All</a>
+                    </div>
+                    <div class="appointment-list">
+                        <div class="appointment-item">
+                            <div class="appointment-date">
+                                <span class="date">22</span>
+                                <span class="month">Sep</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>General Consultation</p>
+                                <span class="time">10:30 AM</span>
+                            </div>
+                            <span class="status confirmed">Confirmed</span>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-date">
+                                <span class="date">25</span>
+                                <span class="month">Sep</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>Cardiology Check-up</p>
+                                <span class="time">2:00 PM</span>
+                            </div>
+                            <span class="status pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-prescription"></i> Current Medications</h3>
+                        <a href="#prescriptions" class="view-all">View All</a>
+                    </div>
+                    <div class="medication-list">
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="medication-details">
+                                <h4>Lisinopril 10mg</h4>
+                                <p>Once daily, morning</p>
+                                <span class="refills">2 refills left</span>
+                            </div>
+                        </div>
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <div class="medication-details">
+                                <h4>Vitamin D3 1000IU</h4>
+                                <p>Once daily with food</p>
+                                <span class="refills">5 refills left</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <button class="action-btn" data-action="book-appointment">
+                        <i class="fas fa-calendar-plus"></i>
+                        <span>Book Appointment</span>
+                    </button>
+                    <button class="action-btn" data-action="video-call">
+                        <i class="fas fa-video"></i>
+                        <span>Start Video Call</span>
+                    </button>
+                    <button class="action-btn" data-action="upload-report">
+                        <i class="fas fa-upload"></i>
+                        <span>Upload Report</span>
+                    </button>
+                    <button class="action-btn" data-action="emergency">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Emergency</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="section">
+            <div class="section-header">
+                <h1>Appointments</h1>
+                <button class="btn-primary" id="book-appointment-btn">
+                    <i class="fas fa-plus"></i>
+                    Book New Appointment
+                </button>
+            </div>
+
+            <div class="appointments-container">
+                <div class="appointment-card">
+                    <div class="appointment-header">
+                        <div class="doctor-info">
+                            <img src="https://ui-avatars.com/api/?name=Dr+Sarah+Johnson&background=e3f2fd&color=1976d2" alt="Doctor">
+                            <div>
+                                <h3>Dr. Sarah Johnson</h3>
+                                <p>General Physician</p>
+                            </div>
+                        </div>
+                        <div class="appointment-status confirmed">
+                            <i class="fas fa-check-circle"></i>
+                            Confirmed
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>September 22, 2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10:30 AM - 11:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-video"></i>
+                            <span>Video Consultation</span>
+                        </div>
+                    </div>
+                    <div class="appointment-actions">
+                        <button class="btn-secondary">Reschedule</button>
+                        <button class="btn-primary">Join Call</button>
+                    </div>
+                </div>
+
+                <div class="appointment-card">
+                    <div class="appointment-header">
+                        <div class="doctor-info">
+                            <img src="https://ui-avatars.com/api/?name=Dr+Michael+Chen&background=e8f5e8&color=2e7d32" alt="Doctor">
+                            <div>
+                                <h3>Dr. Michael Chen</h3>
+                                <p>Cardiologist</p>
+                            </div>
+                        </div>
+                        <div class="appointment-status pending">
+                            <i class="fas fa-clock"></i>
+                            Pending
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>September 25, 2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>2:00 PM - 2:30 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-hospital"></i>
+                            <span>In-person Visit</span>
+                        </div>
+                    </div>
+                    <div class="appointment-actions">
+                        <button class="btn-secondary">Cancel</button>
+                        <button class="btn-outline">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section id="doctors" class="section">
+            <div class="section-header">
+                <h1>Find Doctors</h1>
+                <div class="search-filters">
+                    <input type="text" placeholder="Search doctors..." class="search-input">
+                    <select class="filter-select">
+                        <option value="">All Specialties</option>
+                        <option value="general">General Medicine</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="pediatrics">Pediatrics</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <img src="https://ui-avatars.com/api/?name=Dr+Sarah+Johnson&background=e3f2fd&color=1976d2" alt="Doctor">
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>General Physician</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9 (127 reviews)</span>
+                        </div>
+                        <p class="experience">8 years experience</p>
+                        <div class="availability">
+                            <i class="fas fa-circle available"></i>
+                            Available Today
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-outline">View Profile</button>
+                        <button class="btn-primary">Book Appointment</button>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="https://ui-avatars.com/api/?name=Dr+Michael+Chen&background=e8f5e8&color=2e7d32" alt="Doctor">
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Cardiologist</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7 (89 reviews)</span>
+                        </div>
+                        <p class="experience">12 years experience</p>
+                        <div class="availability">
+                            <i class="fas fa-circle busy"></i>
+                            Next available: Tomorrow
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-outline">View Profile</button>
+                        <button class="btn-primary">Book Appointment</button>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="https://ui-avatars.com/api/?name=Dr+Emma+Wilson&background=fce4ec&color=c2185b" alt="Doctor">
+                    <div class="doctor-info">
+                        <h3>Dr. Emma Wilson</h3>
+                        <p>Dermatologist</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (45 reviews)</span>
+                        </div>
+                        <p class="experience">6 years experience</p>
+                        <div class="availability">
+                            <i class="fas fa-circle available"></i>
+                            Available Now
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-outline">View Profile</button>
+                        <button class="btn-primary">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prescriptions Section -->
+        <section id="prescriptions" class="section">
+            <div class="section-header">
+                <h1>Prescriptions</h1>
+                <button class="btn-primary">
+                    <i class="fas fa-download"></i>
+                    Download All
+                </button>
+            </div>
+
+            <div class="prescriptions-container">
+                <div class="prescription-card">
+                    <div class="prescription-header">
+                        <div class="doctor-info">
+                            <h3>Dr. Sarah Johnson</h3>
+                            <p>Prescribed on Sep 15, 2025</p>
+                        </div>
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Download
+                        </button>
+                    </div>
+                    <div class="medications">
+                        <div class="medication">
+                            <h4>Lisinopril 10mg</h4>
+                            <p>Take once daily in the morning</p>
+                            <span class="duration">Duration: 30 days</span>
+                        </div>
+                        <div class="medication">
+                            <h4>Vitamin D3 1000IU</h4>
+                            <p>Take once daily with food</p>
+                            <span class="duration">Duration: 90 days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section">
+            <div class="section-header">
+                <h1>Medical Reports</h1>
+                <button class="btn-primary" id="upload-report-btn">
+                    <i class="fas fa-upload"></i>
+                    Upload Report
+                </button>
+            </div>
+
+            <div class="reports-container">
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-file-medical-alt"></i>
+                    </div>
+                    <div class="report-info">
+                        <h3>Blood Test Results</h3>
+                        <p>Complete Blood Count (CBC)</p>
+                        <span class="date">September 10, 2025</span>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn-outline">View</button>
+                        <button class="btn-secondary">Download</button>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <div class="report-info">
+                        <h3>Chest X-Ray</h3>
+                        <p>Routine chest examination</p>
+                        <span class="date">August 28, 2025</span>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn-outline">View</button>
+                        <button class="btn-secondary">Download</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="appointment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book New Appointment</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="appointment-form">
+                    <div class="form-group">
+                        <label for="specialty">Specialty</label>
+                        <select id="specialty" required>
+                            <option value="">Select Specialty</option>
+                            <option value="general">General Medicine</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="dermatology">Dermatology</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-date">Preferred Date</label>
+                        <input type="date" id="appointment-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-time">Preferred Time</label>
+                        <select id="appointment-time" required>
+                            <option value="">Select Time</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="consultation-type">Consultation Type</label>
+                        <select id="consultation-type" required>
+                            <option value="video">Video Consultation</option>
+                            <option value="inperson">In-person Visit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptoms">Symptoms/Reason for Visit</label>
+                        <textarea id="symptoms" rows="3" placeholder="Describe your symptoms or reason for the appointment"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">Book Appointment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

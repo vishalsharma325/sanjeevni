@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="dashboard.patient.title">स्वास्थ्य डैशबोर्ड -  Telemedicine Portal</title>
+    <meta name="description" content="Patient health dashboard for  Government's digital healthcare platform">
+    <link rel="stylesheet" href="css/patient-dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3e5.png" type="image/png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="header-logo">
+                <div class="logo">
+                    <i class="fas fa-hospital"></i>
+                    <div class="logo-text">
+                        <div class="logo-title" data-translate="dashboard.platform_name">स्वास्थ्य सेवा</div>
+                        <div class="logo-subtitle" data-translate="dashboard.government_label"> सरकार</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <button class="nav-item active" data-section="overview">
+                    <i class="fas fa-home"></i>
+                    <span data-translate="dashboard.nav.overview">अवलोकन</span>
+                </button>
+                <button class="nav-item" data-section="appointments">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span data-translate="dashboard.nav.appointments">अपॉइंटमेंट</span>
+                </button>
+                <button class="nav-item" data-section="doctors">
+                    <i class="fas fa-user-md"></i>
+                    <span data-translate="dashboard.nav.doctors">डॉक्टर</span>
+                </button>
+                <button class="nav-item" data-section="prescriptions">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    <span data-translate="dashboard.nav.prescriptions">दवाएं</span>
+                </button>
+                <button class="nav-item" data-section="reports">
+                    <i class="fas fa-file-medical"></i>
+                    <span data-translate="dashboard.nav.reports">रिपोर्ट</span>
+                </button>
+            </nav>
+            
+            <!-- User Menu -->
+            <div class="header-actions">
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" onclick="handleLanguageChange('en')">English</button>
+                        <button class="language-option" onclick="handleLanguageChange('hi')">हिंदी</button>
+                        <button class="language-option" onclick="handleLanguageChange('pa')">ਪੰਜਾਬੀ</button>
+                    </div>
+                </div>
+                
+                <!-- Notifications -->
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Patient&background=2196F3&color=fff" alt="Profile" class="user-avatar">
+                    <div class="user-info">
+                        <div class="user-name" id="user-name" data-translate="dashboard.loading">लोड हो रहा है...</div>
+                        <div class="user-role" data-translate="dashboard.patient_role">मरीज़</div>
+                    </div>
+                    <div class="user-menu-dropdown">
+                        <button class="user-menu-item">
+                            <i class="fas fa-user"></i>
+                            <span data-translate="dashboard.profile">प्रोफाइल</span>
+                        </button>
+                        <button class="user-menu-item">
+                            <i class="fas fa-cog"></i>
+                            <span data-translate="dashboard.settings">सेटिंग्स</span>
+                        </button>
+                        <hr>
+                        <button class="user-menu-item logout-btn" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span data-translate="common.logout">लॉगआउट</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-logo">
+            <i class="fas fa-hospital"></i>
+            <span data-translate="dashboard.platform_name">स्वास्थ्य सेवा</span>
+        </div>
+        <button class="notification-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+        </button>
+    </div>
+
+    <!-- Sidebar for Mobile -->
+    <aside class="mobile-sidebar" id="mobile-sidebar">
+        <div class="mobile-sidebar-header">
+            <div class="mobile-user-info">
+                <img src="https://ui-avatars.com/api/?name=Patient&background=2196F3&color=fff" alt="Profile" class="user-avatar">
+                <div>
+                    <div class="user-name" data-translate="dashboard.loading">लोड हो रहा है...</div>
+                    <div class="user-role" data-translate="dashboard.patient_role">मरीज़</div>
+                </div>
+            </div>
+        </div>
+        <nav class="mobile-nav-menu">
+            <button class="mobile-nav-item active" data-section="overview">
+                <i class="fas fa-home"></i>
+                <span data-translate="dashboard.nav.overview">अवलोकन</span>
+            </button>
+            <button class="mobile-nav-item" data-section="appointments">
+                <i class="fas fa-calendar-alt"></i>
+                <span data-translate="dashboard.nav.appointments">अपॉइंटमेंट</span>
+            </button>
+            <button class="mobile-nav-item" data-section="doctors">
+                <i class="fas fa-user-md"></i>
+                <span data-translate="dashboard.nav.doctors">डॉक्टर</span>
+            </button>
+            <button class="mobile-nav-item" data-section="prescriptions">
+                <i class="fas fa-prescription-bottle-alt"></i>
+                <span data-translate="dashboard.nav.prescriptions">दवाएं</span>
+            </button>
+            <button class="mobile-nav-item" data-section="reports">
+                <i class="fas fa-file-medical"></i>
+                <span data-translate="dashboard.nav.reports">रिपोर्ट</span>
+            </button>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <div class="welcome-section">
+                <div class="welcome-text">
+                    <h1 data-translate="dashboard.patient.welcome">आपके स्वास्थ्य डैशबोर्ड में आपका स्वागत है</h1>
+                    <p data-translate="dashboard.patient.subtitle">पंजाब सरकार की ई-स्वास्थ्य सेवाओं के साथ अपने स्वास्थ्य का प्रबंधन करें</p>
+                </div>
+                <div class="welcome-actions">
+                    <button class="btn-primary" data-action="book-appointment">
+                        <i class="fas fa-calendar-plus"></i>
+                        <span data-translate="dashboard.book_appointment">अपॉइंटमेंट बुक करें</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label" data-translate="dashboard.stats.upcoming_appointments">आगामी अपॉइंटमेंट</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label" data-translate="dashboard.stats.active_prescriptions">सक्रिय दवाएं</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label" data-translate="dashboard.stats.medical_reports">मेडिकल रिपोर्ट</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label" data-translate="dashboard.stats.doctors">डॉक्टर</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Cards -->
+            <div class="content-grid">
+                <!-- Recent Appointments -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-calendar-alt"></i>
+                            <span data-translate="dashboard.recent_appointments">हाल की अपॉइंटमेंट</span>
+                        </h3>
+                        <button class="view-all-btn" data-section="appointments" data-translate="common.view_all">सभी देखें</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="appointment-item">
+                            <div class="appointment-date">
+                                <div class="date-number">22</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="appointment-info">
+                                <div class="doctor-name">Dr. Divyasnh Kaundal</div>
+                                <div class="appointment-type" data-translate="dashboard.general_consultation">Gynologist</div>
+                                <div class="appointment-time">10:30 AM</div>
+                            </div>
+                            <div class="appointment-status confirmed" data-translate="dashboard.confirmed">confirm</div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-date">
+                                <div class="date-number">25</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="appointment-info">
+                                <div class="doctor-name">Dr. Animesh </div>
+                                <div class="appointment-type" data-translate="dashboard.followup">Follow-up</div>
+                                <div class="appointment-time">2:00 PM</div>
+                            </div>
+                            <div class="appointment-status pending" data-translate="dashboard.pending">late</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Medications -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-pills"></i>
+                            <span data-translate="dashboard.current_medications">वर्तमान दवाएं</span>
+                        </h3>
+                        <button class="view-all-btn" data-section="prescriptions" data-translate="common.view_all">सभी देखें</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="medication-info">
+                                <div class="medication-name">Lisinopril 10mg</div>
+                                <div class="medication-dosage" data-translate="dashboard.once_daily_morning">दिन में एक बार, सुबह</div>
+                                <div class="medication-refills">2 refills left</div>
+                            </div>
+                            <button class="medication-action">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <div class="medication-info">
+                                <div class="medication-name">Vitamin D3 1000IU</div>
+                                <div class="medication-dosage" data-translate="dashboard.once_daily_food">दिन में एक बार भोजन के साथ</div>
+                                <div class="medication-refills">5 refills left</div>
+                            </div>
+                            <button class="medication-action">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3 data-translate="dashboard.quick_actions">त्वरित क्रियाएं</h3>
+                <div class="actions-grid">
+                    <button class="action-btn" data-action="book-appointment">
+                        <i class="fas fa-calendar-plus"></i>
+                        <span data-translate="dashboard.book_appointment">अपॉइंटमेंट बुक करें</span>
+                    </button>
+                    <button class="action-btn" data-action="video-call">
+                        <i class="fas fa-video"></i>
+                        <span data-translate="dashboard.video_consultation">वीडियो परामर्श</span>
+                    </button>
+                    <button class="action-btn" data-action="upload-report">
+                        <i class="fas fa-upload"></i>
+                        <span data-translate="dashboard.upload_report">रिपोर्ट अपलोड करें</span>
+                    </button>
+                    <button class="action-btn emergency" data-action="emergency">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span data-translate="dashboard.emergency">आपातकाल</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections will be dynamically loaded -->
+        <section id="appointments" class="section">
+            <div class="section-header">
+                <h2 data-translate="dashboard.nav.appointments">अपॉइंटमेंट</h2>
+                <p data-translate="dashboard.manage_appointments">अपनी अपॉइंटमेंट देखें और प्रबंधित करें</p>
+            </div>
+            <div class="section-content">
+                <div class="empty-state">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3 data-translate="dashboard.appointments_coming_soon">अपॉइंटमेंट सेक्शन जल्द आ रहा है</h3>
+                    <p data-translate="dashboard.feature_development">यह फीचर विकसित हो रहा है</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors" class="section">
+            <div class="section-header">
+                <h2 data-translate="dashboard.nav.doctors">डॉक्टर</h2>
+                <p data-translate="dashboard.find_doctors">योग्य डॉक्टर खोजें और उनसे संपर्क करें</p>
+            </div>
+            <div class="section-content">
+                <div class="empty-state">
+                    <i class="fas fa-user-md"></i>
+                    <h3 data-translate="dashboard.doctors_coming_soon">डॉक्टर सेक्शन जल्द आ रहा है</h3>
+                    <p data-translate="dashboard.feature_development">यह फीचर विकसित हो रहा है</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="prescriptions" class="section">
+            <div class="section-header">
+                <h2 data-translate="dashboard.nav.prescriptions">दवाएं</h2>
+                <p data-translate="dashboard.manage_prescriptions">अपनी दवाओं और नुस्खों का प्रबंधन करें</p>
+            </div>
+            <div class="section-content">
+                <div class="empty-state">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    <h3 data-translate="dashboard.prescriptions_coming_soon">दवाएं सेक्शन जल्द आ रहा है</h3>
+                    <p data-translate="dashboard.feature_development">यह फीचर विकसित हो रहा है</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reports" class="section">
+            <div class="section-header">
+                <h2 data-translate="dashboard.nav.reports">रिपोर्ट</h2>
+                <p data-translate="dashboard.view_reports">अपनी मेडिकल रिपोर्ट देखें और डाउनलोड करें</p>
+            </div>
+            <div class="section-content">
+                <div class="empty-state">
+                    <i class="fas fa-file-medical"></i>
+                    <h3 data-translate="dashboard.reports_coming_soon">रिपोर्ट सेक्शन जल्द आ रहा है</h3>
+                    <p data-translate="dashboard.feature_development">यह फीचर विकसित हो रहा है</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/patient-dashboard.js"></script>
+    <script>
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTranslations();
+        });
+        
+        // Language dropdown functionality
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('show');
+        }
+        
+        // Language change handler
+        function handleLanguageChange(lang) {
+            if (typeof changeLanguage === 'function') {
+                changeLanguage(lang);
+                // Close dropdown
+                const dropdown = document.getElementById('languageDropdown');
+                dropdown.classList.remove('show');
+            }
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const selector = document.querySelector('.language-selector');
+            const dropdown = document.getElementById('languageDropdown');
+            
+            if (selector && !selector.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+        
+        // Make language change function global
+        window.handleLanguageChange = handleLanguageChange;
+    </script>
+</body>
+</html>

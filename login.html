@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="login.title">स्वास्थ्य सेवा - लॉगिन | Telemedicine Portal</title>
+    <meta name="description" content="Government Telemedicine Platform - Secure login for patients and healthcare providers">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3e5.png" type="image/png">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Back to Home -->
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span data-translate="common.back_home">होम पर वापस</span>
+        </a>
+        
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="language-btn" onclick="toggleLanguageDropdown()">
+                <i class="fas fa-globe"></i>
+                <span id="current-lang">English</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown" id="languageDropdown">
+                <button class="language-option" onclick="changeLanguage('en')">English</button>
+                <button class="language-option" onclick="changeLanguage('hi')">हिंदी</button>
+                <button class="language-option" onclick="changeLanguage('pa')">ਪੰਜਾਬੀ</button>
+            </div>
+        </div>
+        <div class="login-card">
+            <div class="login-header">
+                <!-- Logo -->
+                <div class="logo">
+                    <i class="fas fa-hospital"></i>
+                    <div class="logo-text">
+                        <div class="logo-title" data-translate="login.platform_name">स्वास्थ्य सेवा</div>
+                        <div class="logo-subtitle" data-translate="login.government_label">पंजाब सरकार</div>
+                    </div>
+                </div>
+                
+                <h1 data-translate="login.welcome_back">वापसी में आपका स्वागत है</h1>
+                <p data-translate="login.signin_subtitle">अपने खाते में साइन इन करें</p>
+            </div>
+            
+            <div class="login-form">
+                <!-- Error Message Display -->
+                <div id="error-message" class="message error-message" style="display: none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="error-text"></span>
+                </div>
+                
+                <!-- Success Message Display -->
+                <div id="success-message" class="message success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="success-text"></span>
+                </div>
+                
+                <!-- Email/Password Login Form -->
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email" data-translate="login.email_label">ईमेल पता</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" data-translate-placeholder="login.email_placeholder" placeholder="अपना ईमेल दर्ज करें" required>
+                        </div>
+                        <div class="error-text" id="email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" data-translate="login.password_label">पासवर्ड</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" data-translate-placeholder="login.password_placeholder" placeholder="अपना पासवर्ड दर्ज करें" required>
+                            <button type="button" class="password-toggle" id="password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="error-text" id="password-error"></div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <span class="checkmark"></span>
+                            <span data-translate="login.remember_me">मुझे याद रखें</span>
+                        </label>
+                        <a href="#" class="forgot-password" data-translate="login.forgot_password">पासवर्ड भूल गए?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="login-btn">
+                        <span class="btn-text" data-translate="login.signin_btn">साइन इन करें</span>
+                        <div class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </button>
+                </form>
+                
+                <div class="divider">
+                    <span data-translate="common.or">या</span>
+                </div>
+                
+                <!-- Google Login Button -->
+                <button class="btn btn-google" id="google-login-btn">
+                    <div class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                    <span class="btn-content">
+                        <svg class="google-icon" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        <span data-translate="login.google_signin">Google के साथ जारी रखें</span>
+                    </span>
+                </button>
+                
+                <!-- Sign Up Link -->
+                <div class="signup-link">
+                    <p><span data-translate="login.no_account">खाता नहीं है?</span> <button class="link-btn" id="signup-btn" data-translate="login.signup_btn">साइन अप करें</button></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sign Up Modal -->
+        <div id="signup-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 data-translate="login.create_account">खाता बनाएं</h2>
+                    <button class="close-btn" id="close-signup-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name" data-translate="login.full_name_label">पूरा नाम</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="signup-name" name="name" data-translate-placeholder="login.full_name_placeholder" placeholder="अपना पूरा नाम दर्ज करें" required>
+                        </div>
+                        <div class="error-text" id="signup-name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email" data-translate="login.email_label">ईमेल पता</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="signup-email" name="email" data-translate-placeholder="login.email_placeholder" placeholder="अपना ईमेल दर्ज करें" required>
+                        </div>
+                        <div class="error-text" id="signup-email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password" data-translate="login.password_label">पासवर्ड</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signup-password" name="password" data-translate-placeholder="login.create_password_placeholder" placeholder="पासवर्ड बनाएं" required>
+                            <button type="button" class="password-toggle" id="signup-password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="error-text" id="signup-password-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-confirm-password" data-translate="login.confirm_password_label">पासवर्ड की पुष्टि करें</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signup-confirm-password" name="confirmPassword" data-translate-placeholder="login.confirm_password_placeholder" placeholder="अपने पासवर्ड की पुष्टि करें" required>
+                            <button type="button" class="password-toggle" id="signup-confirm-password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="error-text" id="signup-confirm-password-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="signup-submit-btn">
+                        <span class="btn-text" data-translate="login.create_account_btn">खाता बनाएं</span>
+                        <div class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize translations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTranslations();
+        });
+        
+        // Language dropdown functionality
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('show');
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const selector = document.querySelector('.language-selector');
+            const dropdown = document.getElementById('languageDropdown');
+            
+            if (!selector.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

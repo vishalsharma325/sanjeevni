@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeevni - Government Digital Healthcare</title>
+    <link rel="stylesheet" href="css/landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content=" Government's digital healthcare platform providing quality medical services to rural communities through telemedicine and government doctors.">
+    <meta name="keywords" content="telemedicine, healthcare, online consultation, digital health, medical platform">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232196f3'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-hospital"></i>
+                    <span class="logo-text">Sanjeevni</span>
+                    <span class="gov-badge">Codebybrains</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" data-translate="nav.home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#features" class="nav-link" data-translate="nav.features">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" data-translate="nav.about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" data-translate="nav.contact">Contact</a>
+                    </li>
+                    <li class="nav-item language-selector">
+                        <button class="language-btn" id="language-btn">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="nav.language">Language</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="language-dropdown">
+                            <button class="language-option" data-lang="en">English</button>
+                            <button class="language-option" data-lang="hi">हिंदी</button>
+                            <button class="language-option" data-lang="pa">ਪੰਜਾਬੀ</button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-cta-btn" id="get-started-btn" data-translate="nav.getStarted">Get Started</button>
+                    </li>
+                </ul>
+                <div class="hamburger" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span data-translate="hero.title">Your Health,</span> <span class="highlight" data-translate="hero.titleHighlight">Our Priority</span>
+                    </h1>
+                    <p class="hero-subtitle" data-translate="hero.subtitle">
+                         Government's digital healthcare initiative bringing quality medical services to rural communities through telemedicine.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">10,000+</div>
+                            <div class="stat-label" data-translate="stats.patients">Happy Patients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label" data-translate="stats.doctors">Government Doctors</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label" data-translate="stats.available">Available</div>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <button class="cta-primary" id="hero-get-started">
+                            <i class="fas fa-play-circle"></i>
+                            <span data-translate="hero.getStarted">Get Started Today</span>
+                        </button>
+                        <button class="cta-secondary" id="watch-demo">
+                            <i class="fas fa-video"></i>
+                            <span data-translate="hero.watchDemo">Watch Demo</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-user-md"></i>
+                            <div class="card-content">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Available Now</p>
+                            </div>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                            <div class="card-content">
+                                <h4>Digital Prescription</h4>
+                                <p>Instant & Secure</p>
+                            </div>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="card-content">
+                                <h4>Next Appointment</h4>
+                                <p>Today 3:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="hero-mockup">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Selection Section -->
+    <section class="role-selection" id="role-selection">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Role</h2>
+                <p>Select how you'd like to access Sanjeevni platform</p>
+            </div>
+            <div class="role-cards">
+                <div class="role-card" id="patient-role">
+                    <div class="role-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>I'm a Patient</h3>
+                    <p>Book appointments, consult with doctors, manage your health records, and access your medical history.</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Book Online Appointments</li>
+                        <li><i class="fas fa-check"></i> Video Consultations</li>
+                        <li><i class="fas fa-check"></i> Digital Prescriptions</li>
+                        <li><i class="fas fa-check"></i> Health Records</li>
+                    </ul>
+                    <button class="role-btn patient-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Continue as Patient
+                    </button>
+                </div>
+                
+                <div class="role-card" id="doctor-role">
+                    <div class="role-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>I'm a Doctor</h3>
+                    <p>Manage your practice, conduct virtual consultations, maintain patient records, and provide expert care.</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Manage Appointments</li>
+                        <li><i class="fas fa-check"></i> Patient Consultations</li>
+                        <li><i class="fas fa-check"></i> Digital Prescriptions</li>
+                        <li><i class="fas fa-check"></i> Patient Records</li>
+                    </ul>
+                    <button class="role-btn doctor-btn">
+                        <i class="fas fa-stethoscope"></i>
+                        Continue as Doctor
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Sanjeevni?</h2>
+                <p>Comprehensive healthcare solutions designed for the modern world</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>HD Video Consultations</h3>
+                    <p>Crystal clear video calls with doctors using our secure, HIPAA-compliant platform.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Bank-level security with end-to-end encryption to protect your medical information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Availability</h3>
+                    <p>Access healthcare services anytime, anywhere with our round-the-clock platform.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-prescription"></i>
+                    </div>
+                    <h3>Digital Prescriptions</h3>
+                    <p>Receive and manage digital prescriptions with direct pharmacy integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Fully responsive design that works seamlessly on all devices and screen sizes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Health Records</h3>
+                    <p>Centralized health records management with easy access to your medical history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Revolutionizing Healthcare Access</h2>
+                    <p class="about-intro">
+                        Sanjeevni is at the forefront of digital healthcare transformation, making quality 
+                        medical care accessible to everyone, everywhere.
+                    </p>
+                    <div class="about-points">
+                        <div class="about-point">
+                            <div class="point-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4>Certified Excellence</h4>
+                                <p>All our doctors are board-certified professionals with years of experience.</p>
+                            </div>
+                        </div>
+                        <div class="about-point">
+                            <div class="point-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4>Patient-Centric Care</h4>
+                                <p>Every feature is designed with patient comfort and care quality in mind.</p>
+                            </div>
+                        </div>
+                        <div class="about-point">
+                            <div class="point-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4>Innovation Driven</h4>
+                                <p>Cutting-edge technology meets compassionate healthcare delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="floating-stats">
+                            <div class="stat-bubble">
+                                <span class="bubble-number">98%</span>
+                                <span class="bubble-label">Satisfaction</span>
+                            </div>
+                            <div class="stat-bubble">
+                                <span class="bubble-number">5min</span>
+                                <span class="bubble-label">Avg Wait</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions? We're here to help you get started with Sanjeevni</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p>support@sanjeevni.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Support Hours</h4>
+                            <p>24/7 Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="billing">Billing Question</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <span class="logo-text">Sanjeevni</span>
+                    </div>
+                    <p class="footer-desc">
+                        Revolutionizing healthcare through technology, making quality medical care accessible to everyone, everywhere.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Video Consultations</a></li>
+                        <li><a href="#">Digital Prescriptions</a></li>
+                        <li><a href="#">Health Records</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">HIPAA Compliance</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sanjeevni. All rights reserved. | Designed By Vishal <i class="fas fa-heart"></i> for better healthcare</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Role Selection Modal -->
+    <div id="role-modal" class="modal">
+        <div class="modal-content role-modal-content">
+            <div class="modal-header">
+                <h2>Choose Your Access Type</h2>
+                <button class="close-btn" id="close-role-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-roles">
+                    <div class="modal-role-card" id="modal-patient-role">
+                        <div class="modal-role-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Patient Portal</h3>
+                        <p>Access your health dashboard, book appointments, and consult with healthcare professionals.</p>
+                        <button class="modal-role-btn patient-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign In as Patient
+                        </button>
+                    </div>
+                    <div class="modal-role-card" id="modal-doctor-role">
+                        <div class="modal-role-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Doctor Portal</h3>
+                        <p>Manage your practice, conduct consultations, and provide expert medical care to patients.</p>
+                        <button class="modal-role-btn doctor-btn">
+                            <i class="fas fa-stethoscope"></i>
+                            Sign In as Doctor
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/landing.js"></script>
+</body>
+</html>
